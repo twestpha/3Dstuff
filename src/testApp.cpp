@@ -7,7 +7,7 @@
 #include "../Vertex.h"
 #include "../Face.h"
 
-Camera c(-5.0,0,0,0,0,0,1.57);
+Camera c(-6.0,0,0,0,0,0,1.57);
 Vertex q(0, 1, -4);
 Vertex r(0, 1,  4);
 Vertex s(4, 1,  4);
@@ -21,7 +21,7 @@ Face k(q1, r1, s1, 150, 150, 150);
 void testApp::setup(){
 	srand (time(NULL));
 	ofSetFrameRate(60);
-	ofDisableAntiAliasing();
+	//ofDisableAntiAliasing();
 	ofBackground(45,45,45);
 }
 
@@ -42,27 +42,19 @@ void testApp::draw(){
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 	if(key == 'a'){
-		c.z -= 1;
+		c.z -= 0.1;
 	}
 	
 	if (key == 'd'){
-		c.z += 1;
+		c.z += 0.1;
 	}
 
 	if(key == 'w'){
-		c.x += 1;
+		c.x += 0.1;
 	}
 
 	if(key == 's'){
-		c.x -= 1;
-	}
-
-	if(key == 'q'){
-		c.y -= 1;
-	}
-
-	if(key == 'e'){
-		c.y -= 1;
+		c.x -= 0.1;
 	}
 
 }
@@ -74,7 +66,8 @@ void testApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y){
-
+	c.roty = -1 * (double(x % 1000)) / 100;
+	c.rotz = (double(y % 1000)) / 100;
 }
 
 //--------------------------------------------------------------

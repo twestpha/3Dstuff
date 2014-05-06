@@ -31,7 +31,7 @@ void Matrix::print(){
 
 Matrix Matrix::operator*(Matrix m){
 
-	int sum;
+	double sum;
 	assert(this->columns == m.rows); // assert that the matrices CAN be multiplied
 
 	vector< vector<double>> product;
@@ -39,7 +39,7 @@ Matrix Matrix::operator*(Matrix m){
 	for(int i(0); i < this->rows; ++i){
 		vector<double> row;
 		for(int j(0); j < m.columns; ++j){
-			sum = 0;
+			sum = 0.0;
 			for(int k(0); k < this->columns; ++k){
 				sum += (this->arr[i][k] * m.arr[k][j]);
 			}
